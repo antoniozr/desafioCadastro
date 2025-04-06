@@ -38,6 +38,8 @@ public class CadastrarPet {
         System.out.println("iii. Rua");
         petEndereco.setRua(sc.nextLine());
 
+        pet.setPetEndereco(petEndereco);
+
         filerepository.lerLinhaEspecifica(5);
         pet.setIdade(inputValidator.validaIdade(sc));
 
@@ -47,5 +49,6 @@ public class CadastrarPet {
         filerepository.lerLinhaEspecifica(7);
         pet.setRaca(inputValidator.validaRaca(sc));
 
+        filerepository.salvarArquivoPet(pet);
     }
 }
