@@ -1,21 +1,15 @@
 package model;
 
 public class PetEndereco {
-    private int numeroCasa;
+    private String numeroCasa;
     private String cidade;
     private String rua;
 
-    public PetEndereco(int numeroCasa, String cidade, String rua) {
-        this.numeroCasa = numeroCasa;
-        this.cidade = cidade;
-        this.rua = rua;
-    }
-
-    public int getNumeroCasa() {
+    public String getNumeroCasa() {
         return numeroCasa;
     }
 
-    public void setNumeroCasa(int numeroCasa) {
+    public void setNumeroCasa(String numeroCasa) {
         this.numeroCasa = numeroCasa;
     }
 
@@ -33,5 +27,11 @@ public class PetEndereco {
 
     public void setRua(String rua) {
         this.rua = rua;
+    }
+
+    @Override
+    public String toString() {
+        return "PetEndereco: " +"N°Casa: " + numeroCasa +
+                "| cidade: " + cidade + "| Rua:" + rua ;
     }
 }

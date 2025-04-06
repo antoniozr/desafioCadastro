@@ -2,22 +2,13 @@ package model;
 
 public class Pet {
     private String nomePet;
-    private PetTipo tipoPet;
+    private PetTipo petTipo;
     private PetSexo petSexo;
     private PetEndereco petEndereco;
-    private double idade;
-    private double peso;
+    private String idade;
+    private String peso;
     private String raca;
 
-    public Pet(String nomePet, PetTipo tipoPet, PetSexo petSexo, PetEndereco petEndereco, double idade, double peso, String raca) {
-        this.nomePet = nomePet;
-        this.tipoPet = tipoPet;
-        this.petSexo = petSexo;
-        this.petEndereco = petEndereco;
-        this.idade = idade;
-        this.peso = peso;
-        this.raca = raca;
-    }
 
     public String getNomePet() {
         return nomePet;
@@ -27,16 +18,36 @@ public class Pet {
         this.nomePet = nomePet;
     }
 
-    public PetTipo getTipoPet() {
-        return tipoPet;
+    public PetTipo getPetTipo() {
+        return petTipo;
     }
 
-    public void setTipoPet(PetTipo tipoPet) {
-        this.tipoPet = tipoPet;
+    public void setPetTipoEscolha(int escolha){
+        if (escolha == 1){
+            setPetTipo(PetTipo.CACHORRO);
+        } else if (escolha == 2) {
+            setPetTipo(PetTipo.GATO);
+        } else {
+            System.out.println("Somente 1 ou 2 são validos");
+        }
+    }
+
+    public void setPetTipo(PetTipo petTipo) {
+        this.petTipo = petTipo;
     }
 
     public PetSexo getPetSexo() {
         return petSexo;
+    }
+
+    public void setPetSexoEscolha(int escolha) {
+        if (escolha == 1 ) {
+            setPetSexo(PetSexo.MACHO);
+        } else if (escolha == 2) {
+            setPetSexo(PetSexo.FEMEA);
+        } else {
+            System.out.println("Somente 1 ou 2 são validos");
+        }
     }
 
     public void setPetSexo(PetSexo petSexo) {
@@ -51,19 +62,19 @@ public class Pet {
         this.petEndereco = petEndereco;
     }
 
-    public double getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(double idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
@@ -73,5 +84,16 @@ public class Pet {
 
     public void setRaca(String raca) {
         this.raca = raca;
+    }
+
+    @Override
+    public String toString() {
+        return "NomePet: " + nomePet  +
+                "\npetTipo: " + petTipo +
+                "\npetSexo: " + petSexo +
+                "\npetEndereco: " + petEndereco +
+                "\nidade:" + idade +
+                "\npeso:" + peso +
+                "\nraca:" + raca;
     }
 }
