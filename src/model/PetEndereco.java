@@ -29,9 +29,4 @@ public class PetEndereco {
         this.rua = rua;
     }
 
-    @Override
-    public String toString() {
-        return "PetEndereco: " +"N°Casa: " + numeroCasa +
-                "| cidade: " + cidade + "| Rua:" + rua ;
     }
-}

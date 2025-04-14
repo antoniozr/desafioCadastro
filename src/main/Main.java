@@ -1,8 +1,10 @@
 package main;
 
 import repository.Filerepository;
+import services.BuscarPetService;
 import services.ImprimirMenu;
 import services.CadastrarPet;
+import services.ListarPets;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +13,8 @@ public class Main {
         file.lerFile();
         ImprimirMenu imprimirMenu = new ImprimirMenu();
         CadastrarPet cadastrarPet = new CadastrarPet();
+        BuscarPetService buscarPet = new BuscarPetService();
+        ListarPets listarPets = new ListarPets();
 
         int opcao = 0;
 
@@ -19,6 +23,12 @@ public class Main {
             switch (opcao) {
                 case 1:
                     cadastrarPet.cadastrarPet();
+                    break;
+                case 4:
+                    listarPets.listarTodosPets();
+                    break;
+                case 5:
+                    buscarPet.buscarPet();
                     break;
                 case 6:
                     System.out.println("Encerrando...");

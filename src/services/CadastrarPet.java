@@ -49,6 +49,6 @@ public class CadastrarPet {
         filerepository.lerLinhaEspecifica(7);
         pet.setRaca(inputValidator.validaRaca(sc));
 
-        filerepository.salvarArquivoPet(pet);
+        pet.salvarArquivoPet(pet);
     }
 }
