@@ -51,32 +51,5 @@ public class Filerepository {
         }
     }
 
-    public void salvarArquivoPet(Pet pet) {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmm");
-        String dateTimeFormater = now.format(formatter);
-        String nameFormater = pet.getNomePet().replace(" ", "").toUpperCase();
 
-        String nameArquivo = dateTimeFormater + "-" + nameFormater;
-        String enderecoArquivo = "C:\\Projects_java\\DevDojo\\desafioCadastro\\src\\petsCadastrados\\" + nameArquivo + ".txt";
-
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(enderecoArquivo))) {
-            bw.write("1 - " + pet.getNomePet());
-            bw.newLine();
-            bw.write("2 - " + pet.getPetTipo());
-            bw.newLine();
-            bw.write("3 - " + pet.getPetSexo());
-            bw.newLine();
-            bw.write("4 - " + pet.getPetEndereco().getRua() + ", " + pet.getPetEndereco().getNumeroCasa() + ", " + pet.getPetEndereco().getCidade());
-            bw.newLine();
-            bw.write("5 - " + pet.getIdade() + " anos");
-            bw.newLine();
-            bw.write("6 - " + pet.getPeso() + "kg");
-            bw.newLine();
-            bw.write("7 - " + pet.getRaca());
-        } catch (IOException e){
-            System.out.println("Erroz ");
-        }
-
-    }
 }
