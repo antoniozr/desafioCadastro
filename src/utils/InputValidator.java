@@ -97,5 +97,26 @@ public class InputValidator {
             return validaRaca(sc);
         }
     }
+
+    public int validaQuantidadeOpcoes(Scanner sc, int inicioIntervalo, int fimIntervalo) {
+        while (true) {
+            try {
+                int numeroValido = sc.nextInt();
+                sc.nextLine();
+
+                if (numeroValido >= inicioIntervalo && numeroValido <= fimIntervalo) {
+                    return numeroValido;
+                } else {
+                    throw new IllegalArgumentException("Entrada inválida! Escolha um número entre " + inicioIntervalo + " e " + fimIntervalo + ".");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: Digite um número inteiro ");
+                sc.nextLine();
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+
+        }
+    }
 }
 
