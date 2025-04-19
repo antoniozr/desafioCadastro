@@ -1,10 +1,7 @@
 package main;
 
 import repository.Filerepository;
-import services.BuscarPetService;
-import services.ImprimirMenu;
-import services.CadastrarPet;
-import services.ListarPets;
+import services.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +12,8 @@ public class Main {
         CadastrarPet cadastrarPet = new CadastrarPet();
         BuscarPetService buscarPet = new BuscarPetService();
         ListarPets listarPets = new ListarPets();
+        EditarPet editarPet = new EditarPet();
+        DeletarPet deletarPet = new DeletarPet();
 
         int opcao = 0;
 
@@ -23,6 +22,12 @@ public class Main {
             switch (opcao) {
                 case 1:
                     cadastrarPet.cadastrarPet();
+                    break;
+                case 2:
+                    editarPet.editarPet();
+                    break;
+                case 3:
+                    deletarPet.deletarPet();
                     break;
                 case 4:
                     listarPets.listarTodosPets();

@@ -11,13 +11,13 @@ import java.util.Scanner;
 
 public class BuscarPetService {
 
-    public void buscarPet() {
+    public List<Pet> buscarPet() {
         Scanner sc = new Scanner(System.in);
         InputValidator inputValidator = new InputValidator();
+        List<Pet> petsFiltrados = new ArrayList<>();
 
         try {
             List<Pet> todosPets = Pet.exibirPetsSalvos();
-            List<Pet> petsFiltrados = new ArrayList<>();
 
             System.out.println("Digite 1 para Cachorro ou 2 para Gato");
             int tipoAnimal = inputValidator.validaUmOuDois(sc);
@@ -104,6 +104,7 @@ public class BuscarPetService {
         } catch (Exception e) {
             System.out.println("Erro ao buscar pets: " + e.getMessage());
         }
+        return petsFiltrados;
     }
 
     private int exibirMenuBuscaCriterio(Scanner sc, InputValidator inputValidator) {
