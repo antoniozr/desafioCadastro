@@ -121,7 +121,7 @@ public class Pet {
             bw.newLine();
             bw.write("5 - " + pet.getIdade() + " anos");
             bw.newLine();
-            bw.write("6 - " + pet.getPeso() + "kg");
+            bw.write("6 - " + pet.getPeso() + " kg");
             bw.newLine();
             bw.write("7 - " + pet.getRaca());
         } catch (IOException e) {
@@ -175,5 +175,29 @@ public class Pet {
             }
         }
         return pets;
+    }
+
+    public void deletarPet(String nomePet) {
+
+        if (nomePet == null || nomePet.isEmpty()) {
+            System.out.println("Nome do pet invalido!");
+            return;
+        }
+
+        String nomePetFormatado = nomePet.replace(" ", "").toUpperCase();
+
+        File pasta = new File(PETSCADASTRADOS);
+        File[] arquivos = pasta.listFiles();
+
+        if (arquivos == null || arquivos.length == 0) {
+            System.out.println("Nenhum arquivo encontrado");
+            return;
+        }
+
+        for (File arquivo : arquivos) {
+            if (arquivo.getName().contains(nomePetFormatado)){ // Intera sobre os arquibos até encotrar um arquivo com nome equivalente ao nome recebido
+                arquivo.delete();
+            }
+        }
     }
 }
