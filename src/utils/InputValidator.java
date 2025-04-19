@@ -71,13 +71,14 @@ public class InputValidator {
             String pesoRecebido = sc.nextLine();
             if (pesoRecebido.isEmpty()) {
                 pesoRecebido = NAO_INFORMADO;
-            }else if (!pesoRecebido.matches("^[0-9.,]+$")) {
+            } else if (!pesoRecebido.matches("^[0-9.,]+$")) {
                 throw new IllegalArgumentException("Somente números são validos");
             }
             double petPesoRecebido = Double.parseDouble(pesoRecebido.replace(",", "."));
             if (petPesoRecebido < 0.5 || petPesoRecebido > 60) {
                 throw new IllegalArgumentException("O Peso deve estár no intervalo de 0.5 a 60 kg");
-            } return String.valueOf(petPesoRecebido);
+            }
+            return String.valueOf(petPesoRecebido);
         } catch (IllegalArgumentException e) {
             System.out.println("Erro: " + e.getMessage() + " Tente novamente");
             return validaPeso(sc);
@@ -89,9 +90,10 @@ public class InputValidator {
             String racaRecebida = sc.nextLine();
             if (racaRecebida.isEmpty()) {
                 racaRecebida = NAO_INFORMADO;
-            }else if (!racaRecebida.matches("^[A-Za-z]+$")) {
+            } else if (!racaRecebida.matches("^[A-Za-z]+$")) {
                 throw new IllegalArgumentException("Caracteres especiais e números não são permitidos");
-            } return racaRecebida;
+            }
+            return racaRecebida;
         } catch (IllegalArgumentException e) {
             System.out.println("Erro: " + e.getMessage() + " Tente novamente");
             return validaRaca(sc);
@@ -116,6 +118,22 @@ public class InputValidator {
                 System.out.println("Erro: " + e.getMessage());
             }
 
+        }
+    }
+
+    public String validaSimNao(Scanner sc) {
+        while (true) {
+            try {
+                String entradaValida = sc.nextLine().toUpperCase();
+
+                if (entradaValida.equals("SIM") || entradaValida.equals("NAO")) {
+                    return entradaValida;
+                } else {
+                    throw new IllegalArgumentException("Entrada invalida somente SIM ou NAO são validos!");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
         }
     }
 }
